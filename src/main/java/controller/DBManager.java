@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 public class DBManager {
 
     private static final String DB_NAME = "user_info.db";
-    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/nazariybrynyarsky/Desktop/Java/JavaEE/SpoonLife/SpoonLife/database/"+DB_NAME;
+    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/nazariybrynyarsky/Desktop/Java/JavaEE/UserSpoonLife/database/"+DB_NAME;
 
     private static final String TABLE_INFO = "users";
 
