@@ -3,12 +3,16 @@
 <html>
     <head>
         <title>JSP - Hello World</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-style.css">
     </head>
     <body>
         <header>
             <h1><%= "Hello localhost!" %></h1>
         </header>
+
+        <links>
+            <h1><%= "Hello localhost!" %></h1>
+        </links>
 
         <div class="container">
             <main></main>

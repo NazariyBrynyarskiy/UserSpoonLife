@@ -20,4 +20,13 @@
         <servlet-name>MainPage</servlet-name>
         <url-pattern>/main</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TestPage</servlet-name>
+        <jsp-file>/test-page.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestPage</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
 </web-app>

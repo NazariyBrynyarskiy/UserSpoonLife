@@ -1,0 +1,33 @@
+.myPopup {
+    width: 400px;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(98, 98, 98);
+    padding: 20px;
+}
+
+.popup:target {
+    display: block;
+}
+
+.popup-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+}
+
+textarea {
+    resize: none;
+    height: 200px;
+    width: 400px;
+    font-size: 30px;
+    text-align: center;
+}
