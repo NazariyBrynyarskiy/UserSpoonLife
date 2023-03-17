@@ -1,16 +1,17 @@
-import controller.DBManager;
+import dataaccess.dbmanagers.UserDBManager;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DBManagerTest {
+class UserDBManagerTest {
 
     @Test
     void selectTable() {
+        UserDBManager userDBManager = new UserDBManager();
         try {
-            assertEquals(DBManager.selectTable("233"), "233");
+            assertEquals(userDBManager.selectTable("233"), "233");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

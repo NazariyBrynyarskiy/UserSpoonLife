@@ -1,4 +1,4 @@
-package controller.chekings;
+package dataaccess.checker.chekings;
 
 
 public class CorrectNumber implements CheckData{

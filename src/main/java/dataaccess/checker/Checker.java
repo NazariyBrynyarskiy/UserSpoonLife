@@ -1,16 +1,16 @@
-package controller;
+package dataaccess.checker;
 
-import controller.chekings.UserExisting;
-import controller.chekings.CheckData;
-import controller.chekings.CorrectNumber;
+import dataaccess.checker.chekings.UserExisting;
+import dataaccess.checker.chekings.CheckData;
+import dataaccess.checker.chekings.CorrectNumber;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Checker {
-    private static List<CheckData> checkData = new ArrayList<>();
+    private List<CheckData> checkData = new ArrayList<>();
 
-    public static boolean process(String phoneNumber) {
+    public boolean process(String phoneNumber) {
         checkData.add(new CorrectNumber());
         checkData.add(new UserExisting());
         for (CheckData c : checkData) {

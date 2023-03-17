@@ -13,20 +13,38 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>MainPage</servlet-name>
-        <jsp-file>/main-page.jsp</jsp-file>
+        <servlet-name>BookOnline</servlet-name>
+        <jsp-file>/book-online.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>MainPage</servlet-name>
-        <url-pattern>/main</url-pattern>
+        <servlet-name>BookOnline</servlet-name>
+        <url-pattern>/book</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>TestPage</servlet-name>
-        <jsp-file>/test-page.jsp</jsp-file>
+        <servlet-name>Trainers</servlet-name>
+        <jsp-file>/trainers.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>TestPage</servlet-name>
-        <url-pattern>/test</url-pattern>
+        <servlet-name>Trainers</servlet-name>
+        <url-pattern>/trainers</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Schedule</servlet-name>
+        <jsp-file>/schedule.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Schedule</servlet-name>
+        <url-pattern>/schedule</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Contacts</servlet-name>
+        <jsp-file>/contacts.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Contacts</servlet-name>
+        <url-pattern>/contacts</url-pattern>
     </servlet-mapping>
 </web-app>
