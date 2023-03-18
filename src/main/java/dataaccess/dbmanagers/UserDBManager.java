@@ -6,9 +6,6 @@ import java.time.format.DateTimeFormatter;
 
 public class UserDBManager extends DBManager {
 
-    private final String TABLE_INFO = "users";
-    private final String COLUMN_DATA = "data";
-
     public UserDBManager() {
         super("users", "data");
     }
@@ -22,21 +19,41 @@ public class UserDBManager extends DBManager {
 
         Connection connection = DriverManager.getConnection(CONNECTION_STRING);
         Statement statement = connection.createStatement();
-        statement.execute("INSERT INTO " + TABLE_INFO +
+        statement.execute("INSERT INTO " + TABLE +
                                         " (" + COLUMN_NAME + ", " +
                                                COLUMN_SURNAME + ", " +
                                                COLUMN_PHONE_NUMBER + ", " +
-                                               COLUMN_DATA +
+                                               ATTRIBUTE +
                                         " ) VALUES ('" + name + "', " + "'" + surname + "', " +
                                                   "'" + phoneNumber + "', " + "'" + data +"')");
         statement.close();
         connection.close();
     }
 
+    public String selectTable(String phoneNumber) throws SQLException {
+        String returnString = "";
+        Connection connection = DriverManager.getConnection(CONNECTION_STRING);
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM " + TABLE + " WHERE " +
+                COLUMN_PHONE_NUMBER + " ='" + phoneNumber + "'");
+        returnString = resultSet.getString(COLUMN_PHONE_NUMBER);
 
-    public static void main(String[] args) {
+        resultSet.close();
+        statement.close();
+        connection.close();
 
+        return returnString;
     }
 
+
+    public static void main(String[] args) {
+        DBManager userDBManager = new UserDBManager();
+        try {
+            userDBManager.deleteContact("2121");
+            userDBManager.deleteContact("2332323");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

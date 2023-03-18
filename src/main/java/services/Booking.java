@@ -7,6 +7,7 @@ import dataaccess.dbmanagers.UserDBManager;
 import java.sql.SQLException;
 
 public class Booking {
+
     private final String nameField;
     private final String surnameField;
     private final String numberField;
@@ -22,6 +23,7 @@ public class Booking {
     public void book() {
         DBManager userDBManager = new UserDBManager();
         Checker checker = new Checker();
+
         String phoneNumber = numberField;
         if (phoneNumber == null)
             phoneNumber = "";
@@ -33,9 +35,9 @@ public class Booking {
                     throw new RuntimeException(e);
                 }
                 userDBManager.insertContact(nameField,
-                                        surnameField,
-                                        phoneNumber,
-                                        dataField);
+                                            surnameField,
+                                            phoneNumber,
+                                            dataField);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

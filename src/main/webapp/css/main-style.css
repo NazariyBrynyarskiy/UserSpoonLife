@@ -143,3 +143,7 @@ a {
     margin-top: 50px;
     border: 1px solid white;
 }
+
+.trainerBox {
+    width: 100%;
+}

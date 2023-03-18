@@ -1,3 +1,4 @@
+<%@ page import="services.TrainerDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,7 +15,6 @@
         <div class="logo">
             <img src="<%=request.getContextPath() + "/images/gym-and-fitness-logo-png.webp"%>" width="150" height="100" alt="logo">
         </div>
-
         <nav>
             <a href="${pageContext.request.contextPath}/book" class="navbutton">Main page</a>
             <a href="${pageContext.request.contextPath}/trainers" class="navbutton">Trainers</a>
@@ -22,17 +22,16 @@
             <a href="${pageContext.request.contextPath}/contacts" class="navbutton">Contacts</a>
         </nav>
     </header>
-
-
     <main>
         <h1>List of trainers</h1>
-        <%  %>
-        <p></p>
+        <%
+            TrainerDAO trainerDAO = new TrainerDAO();
+        %>
     </main>
-
-
+    <div class="trainerBox">
+        <h2><%= trainerDAO.getTrainerList() %></h2>
+    </div>
 </div>
-
 
 </body>
 </html>
