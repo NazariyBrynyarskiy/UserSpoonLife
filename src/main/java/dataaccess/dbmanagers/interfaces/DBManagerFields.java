@@ -1,6 +1,6 @@
 package dataaccess.dbmanagers.interfaces;
 
-public class DBManager {
+public class DBManagerFields {
 
     private final String DB_NAME = "user_info.db";
     public final String CONNECTION_STRING = "jdbc:sqlite:/Users/nazariybrynyarsky/Desktop/Java/JavaEE/UserSpoonLife/database/"+DB_NAME;
@@ -11,7 +11,7 @@ public class DBManager {
 
     private final String TABLE;
 
-    public DBManager(String ATTRIBUTE_ONE, String ATTRIBUTE_TWO, String ATTRIBUTE_THREE, String TABLE) {
+    public DBManagerFields(String ATTRIBUTE_ONE, String ATTRIBUTE_TWO, String ATTRIBUTE_THREE, String TABLE) {
         this.ATTRIBUTE_ONE = ATTRIBUTE_ONE;
         this.ATTRIBUTE_TWO = ATTRIBUTE_TWO;
         this.ATTRIBUTE_THREE = ATTRIBUTE_THREE;

@@ -1,12 +1,12 @@
 package dataaccess.dbmanagers;
 
-import dataaccess.dbmanagers.interfaces.DBManager;
+import dataaccess.dbmanagers.interfaces.DBManagerFields;
 
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class UserDBManager extends DBManager {
+public class UserDBManager extends DBManagerFields {
     private final String COLUMN_PHONE_NUMBER = "data";
 
     public UserDBManager() {

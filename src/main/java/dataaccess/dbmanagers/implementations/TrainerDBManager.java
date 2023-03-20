@@ -1,6 +1,6 @@
 package dataaccess.dbmanagers.implementations;
 
-import dataaccess.dbmanagers.interfaces.DBManager;
+import dataaccess.dbmanagers.interfaces.DBManagerFields;
 import dataaccess.dbmanagers.interfaces.SelectTable;
 import dataaccess.dbmanagers.entities.Trainer;
 
@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TrainerDBManager extends DBManager implements SelectTable {
+public class TrainerDBManager extends DBManagerFields implements SelectTable {
     private List<Trainer> trainerList;
 
     public TrainerDBManager() {

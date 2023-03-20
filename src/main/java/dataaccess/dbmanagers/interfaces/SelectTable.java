@@ -5,5 +5,5 @@ import java.util.List;
 
 @FunctionalInterface
 public interface SelectTable <T>{
-    public List<T> selectTable() throws SQLException;
+    List<T> selectTable() throws SQLException;
 }

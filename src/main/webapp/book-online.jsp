@@ -54,6 +54,7 @@
                     <button type="submit">Reserve</button>
                 </form>
                 <%@ page import="services.Booking"%>
+                <%@ page import="services.NewsDAO" %>
                 <%
                     Booking booking = new Booking(request.getParameter("nameField"),
                                                   request.getParameter("surnameField"),
@@ -92,21 +93,28 @@
         <h1>Last news</h1>
     </div>
     <div class="testimonials">
+        <%
+            NewsDAO newsDAO = new NewsDAO();
+        %>
         <div class="tbox">
-            <p>"I would like to personally thank you for your outstanding product. You guys rock! It's all good. I can't say enough about Roar Cycles."</p>
-            <p>- Tammara I.</p>
+            <p><h2><%= newsDAO.getNewsList().get(0).getNews_title() %></h2></p>
+            <p><%= newsDAO.getNewsList().get(0).getNews_text() %></p>
+            <p><%= newsDAO.getNewsList().get(0).getPublication_data() %></p>
         </div>
         <div class="tbox">
-            <p>"Roar Cycles is the most valuable business resource we have EVER purchased. I will let my mum know about this, she could really make use of Roar Cycles! Roar Cycles has completely surpassed our expectations."</p>
-            <p>- Floris V.</p>
+            <p><h2><%= newsDAO.getNewsList().get(1).getNews_title() %></h2></p>
+            <p><%= newsDAO.getNewsList().get(1).getNews_text() %></p>
+            <p><%= newsDAO.getNewsList().get(1).getPublication_data() %></p>
         </div>
         <div class="tbox">
-            <p>"I'm good to go. Roar Cycles is both attractive and highly adaptable. I will refer everyone I know."</p>
-            <p>- Carlin B.</p>
+            <p><h2><%= newsDAO.getNewsList().get(2).getNews_title() %></h2></p>
+            <p><%= newsDAO.getNewsList().get(2).getNews_text() %></p>
+            <p><%= newsDAO.getNewsList().get(2).getPublication_data() %></p>
         </div>
         <div class="tbox">
-            <p>"Roar Cycles impressed me on multiple levels. I would gladly pay over 600 dollars for Roar Cycles. We can't understand how we've been living without Roar Cycles."</p>
-            <p>- Eve V.</p>
+            <p><h2><%= newsDAO.getNewsList().get(3).getNews_title() %></h2></p>
+            <p><%= newsDAO.getNewsList().get(3).getNews_text() %></p>
+            <p><%= newsDAO.getNewsList().get(3).getPublication_data() %></p>
         </div>
     </div>
 </div>
