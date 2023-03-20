@@ -1,7 +1,6 @@
 package services;
 
-import dataaccess.checker.Checker;
-import dataaccess.dbmanagers.DBManager;
+import dataaccess.bookchecker.Checker;
 import dataaccess.dbmanagers.UserDBManager;
 
 import java.sql.SQLException;
@@ -21,7 +20,7 @@ public class Booking {
     }
 
     public void book() {
-        DBManager userDBManager = new UserDBManager();
+        UserDBManager userDBManager = new UserDBManager();
         Checker checker = new Checker();
 
         String phoneNumber = numberField;

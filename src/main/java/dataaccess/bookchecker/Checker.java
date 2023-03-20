@@ -1,8 +1,8 @@
-package dataaccess.checker;
+package dataaccess.bookchecker;
 
-import dataaccess.checker.chekings.UserExisting;
-import dataaccess.checker.chekings.CheckData;
-import dataaccess.checker.chekings.CorrectNumber;
+import dataaccess.bookchecker.chekings.UserExisting;
+import dataaccess.bookchecker.chekings.CheckData;
+import dataaccess.bookchecker.chekings.CorrectNumber;
 
 import java.util.ArrayList;
 import java.util.List;

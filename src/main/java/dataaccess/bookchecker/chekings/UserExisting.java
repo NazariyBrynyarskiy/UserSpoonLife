@@ -1,4 +1,4 @@
-package dataaccess.checker.chekings;
+package dataaccess.bookchecker.chekings;
 
 import dataaccess.dbmanagers.UserDBManager;
 import java.sql.SQLException;

@@ -1,4 +1,4 @@
-package dataaccess.checker.chekings;
+package dataaccess.bookchecker.chekings;
 
 
 public class CorrectNumber implements CheckData{

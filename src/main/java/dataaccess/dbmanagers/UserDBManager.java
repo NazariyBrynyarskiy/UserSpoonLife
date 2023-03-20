@@ -1,29 +1,31 @@
 package dataaccess.dbmanagers;
 
+import dataaccess.dbmanagers.interfaces.DBManager;
+
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class UserDBManager extends DBManager {
+    private final String COLUMN_PHONE_NUMBER = "data";
 
     public UserDBManager() {
-        super("users", "data");
+        super("name", "surname", "phone_number", "users");
     }
 
-
-    @Override
     public void insertContact(String name, String surname, String phoneNumber, String data) throws SQLException {
+        UserDBManager dbManager = new UserDBManager();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDateTime now = LocalDateTime.now();
         data = dtf.format(now.plusMonths(Integer.parseInt(data)));
 
         Connection connection = DriverManager.getConnection(CONNECTION_STRING);
         Statement statement = connection.createStatement();
-        statement.execute("INSERT INTO " + TABLE +
-                                        " (" + COLUMN_NAME + ", " +
-                                               COLUMN_SURNAME + ", " +
-                                               COLUMN_PHONE_NUMBER + ", " +
-                                               ATTRIBUTE +
+        statement.execute("INSERT INTO " + dbManager.getTABLE() +
+                                        " (" + dbManager.getATTRIBUTE_ONE() + ", " +
+                                               dbManager.getATTRIBUTE_TWO() + ", " +
+                                               dbManager.getATTRIBUTE_THREE() + ", " +
+                                               COLUMN_PHONE_NUMBER +
                                         " ) VALUES ('" + name + "', " + "'" + surname + "', " +
                                                   "'" + phoneNumber + "', " + "'" + data +"')");
         statement.close();
@@ -31,10 +33,11 @@ public class UserDBManager extends DBManager {
     }
 
     public String selectTable(String phoneNumber) throws SQLException {
+        UserDBManager dbManager = new UserDBManager();
         String returnString = "";
         Connection connection = DriverManager.getConnection(CONNECTION_STRING);
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM " + TABLE + " WHERE " +
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM " + dbManager.getTABLE() + " WHERE " +
                 COLUMN_PHONE_NUMBER + " ='" + phoneNumber + "'");
         returnString = resultSet.getString(COLUMN_PHONE_NUMBER);
 
@@ -44,16 +47,4 @@ public class UserDBManager extends DBManager {
 
         return returnString;
     }
-
-
-    public static void main(String[] args) {
-        DBManager userDBManager = new UserDBManager();
-        try {
-            userDBManager.deleteContact("2121");
-            userDBManager.deleteContact("2332323");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
 }

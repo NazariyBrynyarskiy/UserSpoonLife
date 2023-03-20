@@ -1,13 +1,14 @@
 package services;
 
-import dataaccess.dbmanagers.TrainerDBManager;
+import dataaccess.dbmanagers.implementations.TrainerDBManager;
+import dataaccess.dbmanagers.interfaces.SelectTable;
 
 import java.sql.SQLException;
 public class TrainerDAO {
     private String trainerList;
 
     public TrainerDAO() {
-        TrainerDBManager trainerDBManager = new TrainerDBManager();
+        SelectTable trainerDBManager = new TrainerDBManager();
         try {
             Class.forName("org.sqlite.JDBC");
         } catch (ClassNotFoundException e) {
