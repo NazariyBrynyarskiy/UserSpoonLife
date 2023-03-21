@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class UserDBManager extends DBManagerFields {
-    private final String COLUMN_PHONE_NUMBER = "data";
+    private final String COLUMN_DATA = "data";
 
     public UserDBManager() {
         super("name", "surname", "phone_number", "users");
@@ -25,7 +25,7 @@ public class UserDBManager extends DBManagerFields {
                                         " (" + dbManager.getATTRIBUTE_ONE() + ", " +
                                                dbManager.getATTRIBUTE_TWO() + ", " +
                                                dbManager.getATTRIBUTE_THREE() + ", " +
-                                               COLUMN_PHONE_NUMBER +
+                                               COLUMN_DATA +
                                         " ) VALUES ('" + name + "', " + "'" + surname + "', " +
                                                   "'" + phoneNumber + "', " + "'" + data +"')");
         statement.close();
@@ -38,8 +38,8 @@ public class UserDBManager extends DBManagerFields {
         Connection connection = DriverManager.getConnection(CONNECTION_STRING);
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * FROM " + dbManager.getTABLE() + " WHERE " +
-                COLUMN_PHONE_NUMBER + " ='" + phoneNumber + "'");
-        returnString = resultSet.getString(COLUMN_PHONE_NUMBER);
+                dbManager.getATTRIBUTE_THREE() + " ='" + phoneNumber + "'");
+        returnString = resultSet.getString(dbManager.getATTRIBUTE_THREE());
 
         resultSet.close();
         statement.close();

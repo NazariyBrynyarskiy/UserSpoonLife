@@ -54,7 +54,7 @@ public class NewsDBManager extends DBManagerFields implements SelectTable {
         try {
             Connection connection = DriverManager.getConnection(d.CONNECTION_STRING);
             Statement statement = connection.createStatement();
-            statement.executeQuery("INSERT INTO news VALUES ('Title 5', 'Text text text text 5', '"+ data +"')");
+            statement.executeQuery("INSERT INTO news VALUES ('Title 8', 'Text text text text 8', '"+ data +"')");
 
 
             connection.close();
