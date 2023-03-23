@@ -11,25 +11,25 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class NewsDBManager extends DBManagerFields implements SelectTable {
-    private List<News> newsList;
+    private final List<News> newsList;
     public NewsDBManager() {
-        super("news_title", "news_text", "publication_data", "news");
+        super("news_title", "news_text",
+            "publication_data", "news");
         newsList = new LinkedList<>();
     }
 
     @Override
     public List<News> selectTable() throws SQLException {
-        NewsDBManager dbManager = new NewsDBManager();
         String title, text, data;
 
         Connection connection =  DriverManager.getConnection(CONNECTION_STRING);
         Statement statement = connection.createStatement();
 
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM " + dbManager.getTABLE());
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM " + getTABLE());
         while (resultSet.next()) {
-            title = resultSet.getString(dbManager.getATTRIBUTE_ONE());
-            text = resultSet.getString(dbManager.getATTRIBUTE_TWO());
-            data = resultSet.getString(dbManager.getATTRIBUTE_THREE());
+            title = resultSet.getString(getATTRIBUTE_ONE());
+            text = resultSet.getString(getATTRIBUTE_TWO());
+            data = resultSet.getString(getATTRIBUTE_THREE());
             if (newsList.size() == 4) {
                 newsList.add(0, new News(title, text, data));
                 newsList.remove(4);
@@ -54,7 +54,7 @@ public class NewsDBManager extends DBManagerFields implements SelectTable {
         try {
             Connection connection = DriverManager.getConnection(d.CONNECTION_STRING);
             Statement statement = connection.createStatement();
-            statement.executeQuery("INSERT INTO news VALUES ('Title 8', 'Text text text text 8', '"+ data +"')");
+            statement.executeQuery("INSERT INTO news VALUES ('Title 9', 'Text text text text 9', '"+ data +"')");
 
 
             connection.close();
@@ -62,6 +62,6 @@ public class NewsDBManager extends DBManagerFields implements SelectTable {
         } catch (SQLException e) {
             e.getMessage();
         }
-
     }
+
 }

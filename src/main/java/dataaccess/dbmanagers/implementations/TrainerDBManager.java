@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TrainerDBManager extends DBManagerFields implements SelectTable {
-    private List<Trainer> trainerList;
+    private final List<Trainer> trainerList;
 
     public TrainerDBManager() {
         super("name", "surname", "phone_number", "trainers");
@@ -18,18 +18,17 @@ public class TrainerDBManager extends DBManagerFields implements SelectTable {
 
     @Override
     public List<Trainer> selectTable() throws SQLException {
-        TrainerDBManager dbManager = new TrainerDBManager();
         String name, surname, phoneNumber;
         Connection connection = DriverManager.getConnection(CONNECTION_STRING);
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT " + dbManager.getATTRIBUTE_ONE() + ", "
-                                                                   + dbManager.getATTRIBUTE_TWO() + ","
-                                                                   + dbManager.getATTRIBUTE_THREE()
-                                                        + " FROM " + dbManager.getTABLE());
+        ResultSet resultSet = statement.executeQuery("SELECT " + getATTRIBUTE_ONE() + ", "
+                                                                   + getATTRIBUTE_TWO() + ","
+                                                                   + getATTRIBUTE_THREE()
+                                                        + " FROM " + getTABLE());
         while (resultSet.next()) {
-            name = resultSet.getString(dbManager.getATTRIBUTE_ONE());
-            surname = resultSet.getString(dbManager.getATTRIBUTE_TWO());
-            phoneNumber = resultSet.getString(dbManager.getATTRIBUTE_THREE());
+            name = resultSet.getString(getATTRIBUTE_ONE());
+            surname = resultSet.getString(getATTRIBUTE_TWO());
+            phoneNumber = resultSet.getString(getATTRIBUTE_THREE());
             trainerList.add(new Trainer(name, surname, phoneNumber));
         }
 

@@ -1,3 +1,4 @@
+<%@ page import="services.ScheduleDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -26,7 +27,45 @@
 
 
     <main>
-
+        <%
+            ScheduleDAO scheduleDAO = new ScheduleDAO();
+        %>
+        <table>
+            <thead>
+            <tr>
+                <th>Day</th>
+                <th>Entrance to the club</th>
+            </tr>
+            </thead>
+            <tr>
+                <td><%= scheduleDAO.getNewsList().get(0).getDay() %></td>
+                <td><%= scheduleDAO.getNewsList().get(0).getTime() %></td>
+            </tr>
+            <tr>
+                <td><%= scheduleDAO.getNewsList().get(1).getDay() %></td>
+                <td><%= scheduleDAO.getNewsList().get(1).getTime() %></td>
+            </tr>
+            <tr>
+                <td><%= scheduleDAO.getNewsList().get(2).getDay() %></td>
+                <td><%= scheduleDAO.getNewsList().get(2).getTime() %></td>
+            </tr>
+            <tr>
+                <td><%= scheduleDAO.getNewsList().get(3).getDay() %></td>
+                <td><%= scheduleDAO.getNewsList().get(3).getTime() %></td>
+            </tr>
+            <tr>
+                <td><%= scheduleDAO.getNewsList().get(4).getDay() %></td>
+                <td><%= scheduleDAO.getNewsList().get(4).getTime() %></td>
+            </tr>
+            <tr>
+                <td><%= scheduleDAO.getNewsList().get(5).getDay() %></td>
+                <td><%= scheduleDAO.getNewsList().get(5).getTime() %></td>
+            </tr>
+            <tr>
+                <td><%= scheduleDAO.getNewsList().get(6).getDay() %></td>
+                <td><%= scheduleDAO.getNewsList().get(6).getTime() %></td>
+            </tr>
+        </table>
     </main>
 
 
