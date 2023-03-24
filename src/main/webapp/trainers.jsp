@@ -1,4 +1,5 @@
-<%@ page import="services.TrainerDAO" %>
+<%@ page import="service.TrainerManager" %>
+<%@ page import="service.TrainerManager" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -25,11 +26,11 @@
     <main>
         <h1>List of trainers</h1>
         <%
-            TrainerDAO trainerDAO = new TrainerDAO();
+            TrainerManager trainerManager = new TrainerManager();
         %>
     </main>
     <div class="trainerBox">
-        <h2><%= trainerDAO.getTrainerList() %></h2>
+        <h2><%= trainerManager.getTrainers() %></h2>
     </div>
 </div>
 

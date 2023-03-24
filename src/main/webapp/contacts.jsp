@@ -1,3 +1,4 @@
+<%@ page import="service.ContactsManager" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -25,9 +26,30 @@
     </header>
 
 
-    <main>
+        <p>
+            <%
+                ContactsManager contactsManager = new ContactsManager();
+            %>
+            <h3>
+                <%= contactsManager.getContactsList().get(0).getCOMMUNICATION_TYPE() + ": " %>
+                <%= contactsManager.getContactsList().get(0).getLINK() %>
+            </h3>
 
-    </main>
+            <h3>
+                <%= contactsManager.getContactsList().get(1).getCOMMUNICATION_TYPE() + ": "  %>
+                <%= contactsManager.getContactsList().get(1).getLINK() %>
+            </h3>
+
+            <h3>
+                <%= contactsManager.getContactsList().get(2).getCOMMUNICATION_TYPE() + ": " %>
+                <%= contactsManager.getContactsList().get(2).getLINK() %>
+            </h3>
+
+            <h3>
+                <%= contactsManager.getContactsList().get(3).getCOMMUNICATION_TYPE() + ": " %>
+                <%= contactsManager.getContactsList().get(3).getLINK() %>
+            </h3>
+        </p>
 
 
 </div>

@@ -53,14 +53,15 @@
                     </select></h3>
                     <button type="submit">Reserve</button>
                 </form>
-                <%@ page import="services.Booking"%>
-                <%@ page import="services.NewsDAO" %>
+                <%@ page import="service.BookingManager"%>
+                <%@ page import="service.NewsManager" %>
+                <%@ page import="service.BookingManager" %>
                 <%
-                    Booking booking = new Booking(request.getParameter("nameField"),
+                    BookingManager bookingManager = new BookingManager(request.getParameter("nameField"),
                                                   request.getParameter("surnameField"),
                                                   request.getParameter("numberField"),
                                                   request.getParameter("dataField"));
-                    booking.book();
+                    bookingManager.book();
                 %>
             </div>
         </div>
@@ -94,27 +95,27 @@
     </div>
     <div class="testimonials">
         <%
-            NewsDAO newsDAO = new NewsDAO();
+            NewsManager newsManager = new NewsManager();
         %>
         <div class="tbox">
-            <p><h2><%= newsDAO.getNewsList().get(0).getNews_title() %></h2></p>
-            <p><%= newsDAO.getNewsList().get(0).getNews_text() %></p>
-            <p><%= newsDAO.getNewsList().get(0).getPublication_data() %></p>
+            <p><h2><%= newsManager.getNewsList().get(0).getNews_title() %></h2></p>
+            <p><%= newsManager.getNewsList().get(0).getNews_text() %></p>
+            <p><%= newsManager.getNewsList().get(0).getPublication_data() %></p>
         </div>
         <div class="tbox">
-            <p><h2><%= newsDAO.getNewsList().get(1).getNews_title() %></h2></p>
-            <p><%= newsDAO.getNewsList().get(1).getNews_text() %></p>
-            <p><%= newsDAO.getNewsList().get(1).getPublication_data() %></p>
+            <p><h2><%= newsManager.getNewsList().get(1).getNews_title() %></h2></p>
+            <p><%= newsManager.getNewsList().get(1).getNews_text() %></p>
+            <p><%= newsManager.getNewsList().get(1).getPublication_data() %></p>
         </div>
         <div class="tbox">
-            <p><h2><%= newsDAO.getNewsList().get(2).getNews_title() %></h2></p>
-            <p><%= newsDAO.getNewsList().get(2).getNews_text() %></p>
-            <p><%= newsDAO.getNewsList().get(2).getPublication_data() %></p>
+            <p><h2><%= newsManager.getNewsList().get(2).getNews_title() %></h2></p>
+            <p><%= newsManager.getNewsList().get(2).getNews_text() %></p>
+            <p><%= newsManager.getNewsList().get(2).getPublication_data() %></p>
         </div>
         <div class="tbox">
-            <p><h2><%= newsDAO.getNewsList().get(3).getNews_title() %></h2></p>
-            <p><%= newsDAO.getNewsList().get(3).getNews_text() %></p>
-            <p><%= newsDAO.getNewsList().get(3).getPublication_data() %></p>
+            <p><h2><%= newsManager.getNewsList().get(3).getNews_title() %></h2></p>
+            <p><%= newsManager.getNewsList().get(3).getNews_text() %></p>
+            <p><%= newsManager.getNewsList().get(3).getPublication_data() %></p>
         </div>
     </div>
 </div>

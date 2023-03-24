@@ -1,4 +1,4 @@
-import dataaccess.dbmanagers.UserDBManager;
+import data.dao.UserInserter;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
@@ -9,9 +9,9 @@ class UserDBManagerTest {
 
     @Test
     void selectTable() {
-        UserDBManager userDBManager = new UserDBManager();
+        UserInserter userInserter = new UserInserter();
         try {
-            assertEquals(userDBManager.selectTable("233"), "233");
+            assertEquals(userInserter.selectTable("233"), "233");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
